@@ -5,7 +5,8 @@ WORKDIR /app
 
 # 安装依赖
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ && \
+    pip install --no-cache-dir -r requirements.txt
 
 # 复制源码
 COPY . .
